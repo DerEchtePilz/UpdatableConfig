@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "io.github.derechtepilz"
-version = "1.0-SNAPSHOT"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -29,8 +29,11 @@ java {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            from(components["java"])
+            groupId = project.group.toString()
+            artifactId = project.name
+            version = project.version.toString()
 
+            from(components["java"])
         }
     }
 }
